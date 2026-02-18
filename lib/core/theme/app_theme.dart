@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'app_colors.dart';
 
@@ -18,6 +19,7 @@ class AppTheme {
       secondary: AppColors.secondary500,
       error: AppColors.negative500,
     ),
+    fontFamily: GoogleFonts.poppins().fontFamily,
     appBarTheme: const AppBarTheme(
       backgroundColor: AppColors.white,
       foregroundColor: AppColors.black,
@@ -92,6 +94,7 @@ class AppTheme {
       secondary: AppColors.secondary500,
       error: AppColors.negative500,
     ),
+    fontFamily: GoogleFonts.poppins().fontFamily,
     appBarTheme: const AppBarTheme(
       backgroundColor: AppColors.neutral900,
       foregroundColor: AppColors.neutral100,
