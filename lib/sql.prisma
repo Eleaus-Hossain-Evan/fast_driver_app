@@ -1,0 +1,96 @@
+```
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Client {
+  id           String   @id @default(cuid())
+  clientId     String?
+  clientSecret String?
+  grants       String[]
+  redirectUris String[] @default([])
+}
+
+model User {
+  id          String       @id @unique
+  name        String?
+  fatherName  String?
+  motherName  String?
+  address     String?
+  religion    String?
+  NID         String?
+  email       String?
+  phoneNumber String?
+  password    String
+  // roles       String[]
+  role        Role
+  Token       Token[]
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @default(now()) @updatedAt
+  Sell        Sell[]
+  Production  Production[]
+  Buy         Buy[]
+}
+
+model Token {
+  id                    String    @id @default(cuid())
+  accessToken           String?
+  accessTokenExpiresAt  DateTime?
+  refreshToken          String?
+  refreshTokenExpiresAt DateTime?
+  client                String?
+  user                  String?
+  createrAt             DateTime  @default(now())
+  tokenAvailer          User      @relation(fields: [tokenAvailerId], references: [id], onDelete: Cascade)
+  tokenAvailerId        String
+}
+
+model Production {
+  id        String   @id @default(cuid())
+  qn        Json
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+  farmer    User     @relation(fields: [farmerId], references: [id], onDelete: Cascade)
+  farmerId  String
+}
+
+model Sell {
+  id        String   @id @default(cuid())
+  fishImage String
+  fishName  String
+  quantity  Float
+  price     Float
+  qrid      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+  farmer    User     @relation(fields: [farmerId], references: [id], onDelete: Cascade)
+  farmerId  String
+  Buy       Buy[]
+}
+
+model Buy {
+  id        String   @id @default(cuid())
+  quantity  Float
+  price     Float
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+  sell      Sell     @relation(fields: [sellId], references: [id], onDelete: Cascade)
+  sellId    String
+  buyer     User     @relation(fields: [buyerId], references: [id])
+  buyerId   String
+}
+
+enum Role {
+  FARMER
+  MARCHANT
+  ADMIN
+}
+```
