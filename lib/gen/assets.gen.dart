@@ -1,4 +1,4 @@
-// dart format width=100
+// dart format width=80
 
 /// GENERATED CODE - DO NOT MODIFY BY HAND
 /// *****************************************************
@@ -18,7 +18,8 @@ class $AssetsIconsGen {
   const $AssetsIconsGen();
 
   /// File path: assets/icons/Approve_full.svg
-  SvgGenImage get approveFull => const SvgGenImage('assets/icons/Approve_full.svg');
+  SvgGenImage get approveFull =>
+      const SvgGenImage('assets/icons/Approve_full.svg');
 
   /// List of all assets
   List<SvgGenImage> get values => [approveFull];
@@ -28,7 +29,8 @@ class $AssetsLogosGen {
   const $AssetsLogosGen();
 
   /// File path: assets/logos/app Logo-white.png
-  AssetGenImage get appLogoWhite => const AssetGenImage('assets/logos/app Logo-white.png');
+  AssetGenImage get appLogoWhite =>
+      const AssetGenImage('assets/logos/app Logo-white.png');
 
   /// File path: assets/logos/app Logo.png
   AssetGenImage get appLogo => const AssetGenImage('assets/logos/app Logo.png');
@@ -40,11 +42,11 @@ class $AssetsLogosGen {
 class $AssetsVideosGen {
   const $AssetsVideosGen();
 
-  /// File path: assets/videos/V.mp4
-  String get v => 'assets/videos/V.mp4';
+  /// File path: assets/videos/luncher-bg.mp4
+  String get luncherBg => 'assets/videos/luncher-bg.mp4';
 
   /// List of all assets
-  List<String> get values => [v];
+  List<String> get values => [luncherBg];
 }
 
 class Assets {
@@ -56,7 +58,12 @@ class Assets {
 }
 
 class AssetGenImage {
-  const AssetGenImage(this._assetName, {this.size, this.flavors = const {}, this.animation});
+  const AssetGenImage(
+    this._assetName, {
+    this.size,
+    this.flavors = const {},
+    this.animation,
+  });
 
   final String _assetName;
 
@@ -139,7 +146,8 @@ class AssetGenImageAnimation {
 }
 
 class SvgGenImage {
-  const SvgGenImage(this._assetName, {this.size, this.flavors = const {}}) : _isVecFormat = false;
+  const SvgGenImage(this._assetName, {this.size, this.flavors = const {}})
+    : _isVecFormat = false;
 
   const SvgGenImage.vec(this._assetName, {this.size, this.flavors = const {}})
     : _isVecFormat = true;
@@ -172,7 +180,11 @@ class SvgGenImage {
   }) {
     final _svg.BytesLoader loader;
     if (_isVecFormat) {
-      loader = _vg.AssetBytesLoader(_assetName, assetBundle: bundle, packageName: package);
+      loader = _vg.AssetBytesLoader(
+        _assetName,
+        assetBundle: bundle,
+        packageName: package,
+      );
     } else {
       loader = _svg.SvgAssetLoader(
         _assetName,
@@ -194,7 +206,9 @@ class SvgGenImage {
       placeholderBuilder: placeholderBuilder,
       semanticsLabel: semanticsLabel,
       excludeFromSemantics: excludeFromSemantics,
-      colorFilter: colorFilter ?? (color == null ? null : ColorFilter.mode(color, colorBlendMode)),
+      colorFilter:
+          colorFilter ??
+          (color == null ? null : ColorFilter.mode(color, colorBlendMode)),
       clipBehavior: clipBehavior,
       cacheColorFilter: cacheColorFilter,
     );

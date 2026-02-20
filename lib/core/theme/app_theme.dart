@@ -4,6 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'app_colors.dart';
 
 class AppTheme {
+  static BorderRadiusGeometry kButtonBorderRadius = BorderRadius.circular(6);
+
   AppTheme._();
 
   // ─── Light Theme ────────────────────────────────────────
