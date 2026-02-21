@@ -7,12 +7,11 @@ class AppButton extends HookConsumerWidget {
   const AppButton({
     super.key,
     required this.onPressed,
-    required this.text,
+    required this.child,
     this.color,
     this.textColor,
     this.disabledTextColor,
     this.loading,
-    this.child,
     this.height,
     this.minWidth,
     this.borderRadius,
@@ -29,7 +28,6 @@ class AppButton extends HookConsumerWidget {
     this.textStyle,
   });
 
-  final String text;
   final Color? color, textColor, disabledTextColor;
   final VoidCallback? onPressed;
   final bool? loading;
@@ -83,7 +81,7 @@ class AppButton extends HookConsumerWidget {
                 ),
               ),
             )
-          : child ?? Text(text, style: textStyle),
+          : child,
     );
   }
 
@@ -99,34 +97,64 @@ class AppButton extends HookConsumerWidget {
     TextStyle? textStyle,
     Color? color,
     Color? textColor,
-  }) => AppButton(
-    onPressed: onPressed,
-    text: text,
-    color: color ?? AppColors.primary,
-    textColor: textColor ?? AppColors.white,
-    disabledTextColor: AppColors.neutral,
-    loading: loading,
-    minWidth: width ?? double.infinity,
-    height: height ?? 44,
-    textStyle: textStyle ?? AppTextStyles.bodyLG.copyWith(color: textColor ?? AppColors.white),
-    borderRadius: borderRadius,
-    disabledElevation: 4,
-    elevation: 4,
-    padding: padding ?? EdgeInsets.zero,
-    child: child,
-  );
+    Widget? icon,
+  }) {
+    final finalTextStyle =
+        textStyle ??
+        AppTextStyles.bodyLG.copyWith(color: textColor ?? AppColors.white);
+
+    Widget content =
+        child ??
+        Text(
+          text,
+          style: finalTextStyle,
+        );
+    if (icon != null) {
+      content = Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          content,
+          AppSpace.h2,
+          icon,
+        ],
+      );
+    }
+    return AppButton(
+      onPressed: onPressed,
+      color: color ?? AppColors.primary,
+      textColor: textColor ?? AppColors.white,
+      disabledTextColor: AppColors.neutral,
+      loading: loading,
+      minWidth: width ?? double.infinity,
+      height: height ?? 44,
+      textStyle: finalTextStyle,
+      borderRadius: borderRadius,
+      disabledElevation: 4,
+      elevation: 4,
+      padding: padding ?? EdgeInsets.zero,
+      child: content,
+    );
+  }
 
   factory AppButton.filledSecondary({
     required void Function()? onPressed,
     String text = '',
     bool? loading,
     TextStyle? textStyle,
-  }) => AppButton(
-    onPressed: onPressed,
-    text: text,
-    color: AppColors.neutral100,
-    textColor: AppColors.blackFontSecondary,
-    loading: loading,
-    textStyle: textStyle ?? AppTextStyles.bodyLG.colorBlack(),
-  );
+  }) {
+    final finalTextStyle =
+        textStyle ??
+        AppTextStyles.bodyLG.copyWith(color: AppColors.blackFontSecondary);
+    return AppButton(
+      onPressed: onPressed,
+      color: AppColors.neutral100,
+      textColor: AppColors.blackFontSecondary,
+      loading: loading,
+      textStyle: finalTextStyle,
+      child: Text(
+        text,
+        style: finalTextStyle,
+      ),
+    );
+  }
 }

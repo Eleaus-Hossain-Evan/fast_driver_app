@@ -1,4 +1,6 @@
 import 'package:fast_driver_app/core/core.dart';
+import 'package:fast_driver_app/features/auth/login_screen.dart';
+import 'package:fast_driver_app/features/luncher/select_language_screen.dart';
 import 'package:fast_driver_app/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -96,7 +98,7 @@ class LauncherScreen extends HookConsumerWidget {
                   // mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     AppSpace.v4,
-                    Assets.logos.appLogoWhite.image(
+                    Assets.logos.splashLogoWhite.image(
                       width: 343,
                       fit: BoxFit.contain,
                     ),
@@ -112,14 +114,28 @@ class LauncherScreen extends HookConsumerWidget {
                     ),
                     AppSpace.v12,
                     AppButton.filled(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => LoginScreen(),
+                          ),
+                        );
+                      },
                       color: AppColors.primary50,
                       textColor: AppColors.primary,
                       text: 'Login',
                     ),
                     AppSpace.v4,
                     AppButton.filled(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SelectLanguageScreen(),
+                          ),
+                        );
+                      },
                       text: 'Create Account',
                     ),
                     Spacer(),

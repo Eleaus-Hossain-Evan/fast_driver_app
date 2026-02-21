@@ -14,29 +14,65 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart' as _svg;
 import 'package:vector_graphics/vector_graphics.dart' as _vg;
 
+class $AssetsFontsGen {
+  const $AssetsFontsGen();
+
+  /// File path: assets/fonts/ui_icons.otf
+  String get uiIcons => 'assets/fonts/ui_icons.otf';
+
+  /// List of all assets
+  List<String> get values => [uiIcons];
+}
+
 class $AssetsIconsGen {
   const $AssetsIconsGen();
+
+  /// File path: assets/icons/Approve(Tick).svg
+  SvgGenImage get approveTick =>
+      const SvgGenImage('assets/icons/Approve(Tick).svg');
 
   /// File path: assets/icons/Approve_full.svg
   SvgGenImage get approveFull =>
       const SvgGenImage('assets/icons/Approve_full.svg');
 
+  /// File path: assets/icons/alert-circle.svg
+  SvgGenImage get alertCircle =>
+      const SvgGenImage('assets/icons/alert-circle.svg');
+
+  /// File path: assets/icons/comment-verify.svg
+  SvgGenImage get commentVerify =>
+      const SvgGenImage('assets/icons/comment-verify.svg');
+
+  /// File path: assets/icons/right arrow.svg
+  SvgGenImage get rightArrow =>
+      const SvgGenImage('assets/icons/right arrow.svg');
+
   /// List of all assets
-  List<SvgGenImage> get values => [approveFull];
+  List<SvgGenImage> get values => [
+    approveTick,
+    approveFull,
+    alertCircle,
+    commentVerify,
+    rightArrow,
+  ];
 }
 
 class $AssetsLogosGen {
   const $AssetsLogosGen();
 
-  /// File path: assets/logos/app Logo-white.png
-  AssetGenImage get appLogoWhite =>
-      const AssetGenImage('assets/logos/app Logo-white.png');
+  /// File path: assets/logos/Apps Logo.svg
+  SvgGenImage get appsLogo => const SvgGenImage('assets/logos/Apps Logo.svg');
 
-  /// File path: assets/logos/app Logo.png
-  AssetGenImage get appLogo => const AssetGenImage('assets/logos/app Logo.png');
+  /// File path: assets/logos/splash logo-white.png
+  AssetGenImage get splashLogoWhite =>
+      const AssetGenImage('assets/logos/splash logo-white.png');
+
+  /// File path: assets/logos/splash logo.png
+  AssetGenImage get splashLogo =>
+      const AssetGenImage('assets/logos/splash logo.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [appLogoWhite, appLogo];
+  List<dynamic> get values => [appsLogo, splashLogoWhite, splashLogo];
 }
 
 class $AssetsVideosGen {
@@ -52,6 +88,7 @@ class $AssetsVideosGen {
 class Assets {
   const Assets._();
 
+  static const $AssetsFontsGen fonts = $AssetsFontsGen();
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsLogosGen logos = $AssetsLogosGen();
   static const $AssetsVideosGen videos = $AssetsVideosGen();

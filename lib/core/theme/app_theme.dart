@@ -20,26 +20,35 @@ class AppTheme {
       brightness: Brightness.light,
       secondary: AppColors.secondary500,
       error: AppColors.negative500,
+      surface: AppColors.bgColor,
     ),
     fontFamily: GoogleFonts.poppins().fontFamily,
     appBarTheme: const AppBarTheme(
       backgroundColor: AppColors.white,
-      foregroundColor: AppColors.black,
+      foregroundColor: AppColors.blackFontPrimary,
       elevation: 0,
       centerTitle: true,
+    ),
+    filledButtonTheme: FilledButtonThemeData(
+      style: FilledButton.styleFrom(
+        backgroundColor: AppColors.primary,
+        foregroundColor: AppColors.white50,
+        fixedSize: Size.fromHeight(48),
+        shape: RoundedSuperellipseBorder(borderRadius: kButtonBorderRadius),
+      ),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.primary500,
         foregroundColor: AppColors.white,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        shape: RoundedSuperellipseBorder(borderRadius: kButtonBorderRadius),
       ),
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
         foregroundColor: AppColors.primary500,
         side: const BorderSide(color: AppColors.primary500),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        shape: RoundedSuperellipseBorder(borderRadius: kButtonBorderRadius),
       ),
     ),
     textButtonTheme: TextButtonThemeData(
@@ -59,16 +68,15 @@ class AppTheme {
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
-        borderSide: const BorderSide(color: AppColors.primary500, width: 2),
+        borderSide: const BorderSide(color: AppColors.primary500),
       ),
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
-        borderSide: const BorderSide(color: AppColors.negative500),
+        borderSide: const BorderSide(color: AppColors.orange),
       ),
     ),
     cardTheme: CardThemeData(
-      color: AppColors.white,
-      elevation: 1,
+      color: AppColors.bgColor,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
     ),
     dividerTheme: const DividerThemeData(
@@ -80,6 +88,10 @@ class AppTheme {
       selectedColor: AppColors.primary50,
       labelStyle: const TextStyle(color: AppColors.black),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+    ),
+    dialogTheme: DialogThemeData(
+      backgroundColor: AppColors.bgColor,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
     ),
   );
 

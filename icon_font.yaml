@@ -1,0 +1,8 @@
+icon_font:
+  input_svg_dir: "assets/icons/"
+  output_font_file: "assets/fonts/ui_icons.otf"
+
+  output_class_file: "lib/gen/ui_icons.dart"
+  class_name: "UIIcons"
+
+  font_name: "UI Icons"

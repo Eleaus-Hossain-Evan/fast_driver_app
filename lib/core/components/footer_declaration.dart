@@ -12,10 +12,13 @@ class FooterDeclaration extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        vertical: 8.0,
-        horizontal: 28,
-      ),
+      padding:
+          const EdgeInsets.symmetric(
+            vertical: 8.0,
+            horizontal: 28,
+          ).copyWith(
+            bottom: MediaQuery.viewPaddingOf(context).bottom + AppSpace.space2,
+          ),
       child: Text(
         'Powered By SafeCare24/7 Medical Services Limited Beta Version 1.0',
         style: AppTextStyles.caption.copyWith(
